@@ -1,13 +1,114 @@
-body {
-  margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen",
-    "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue",
-    sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+
+html, body {
+  height: 100%;
 }
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
-    monospace;
+body {
+  background: url("https://images.pexels.com/photos/1996331/pexels-photo-1996331.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940") no-repeat;
+  background-size: cover;
+  background-position: 50% 40%;
+  background-size: cover;
+
+  color: #0b0539;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  width: 100vw;
+}
+
+body:after {
+  content: "";
+  background: rgba(20, 23, 37, 0.38);
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  position: absolute;
+}
+
+
+/* App container*/
+.app-container {
+  position: relative;
+  z-index: 2;
+
+  max-width: 450px;
+  width: 100%;
+  padding: 24px;
+
+  background: rgba(255, 255, 255, 0.23);
+  border-radius: 8px;
+  border: none;
+  box-shadow: 7px 3px 10px #1911116e;
+}
+
+.app-container h3 {
+  margin: 0 0 24px;
+  color: #03022b;
+  text-transform: uppercase;
+  letter-spacing: .2px;
+  text-shadow: 9px 3px 8px #353333f5;
+}
+
+/* New task */
+.new-task-container {
+  margin-bottom: 16px;
+}
+
+/* Tasks list */
+.tasks-container ul {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.single-task {
+  margin-bottom: 16px;
+}
+
+
+.input-group .form-control {
+  position: relative;
+  z-index: 2;
+  float: left;
+  width: 100%;
+  margin-bottom: 0;
+  background: #0c0c0ca1;
+  color: #fff;
+}
+
+button.btn {
+  color: #fff;
+  background-color: #337ab7;
+  border-color: #2e6da4;
+}
+
+.btn-danger {
+  color: #ececec;
+  background-color: #9c1511;
+  border-color: #ffffff2e;
+}
+
+.fa-trash-alt:before {
+  background: #9c1511;
+  content: "\f2ed";
+  font-weight: 400;
+  position: absolute;
+  right: 0;
+  margin: 0 16px;
+}
+
+button.btn.btn-default.toggle-complete-btn.btn-success {
+  background: #3c763d;
+}
+
+@media only screen and (min-width: 600px) {
+  .app-container {
+    max-width: 100%;
+    height: auto;
+    margin: 0 32px;
+    font-size: 20px;
+  }
 }
