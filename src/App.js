@@ -1,8 +1,8 @@
-
 import React, { Component } from 'react';
-import './App.css';
+import './App.scss';
+import ToDoItem from './components/ToDoItem/ToDoItem'
 
-class ToDoList extends Component {
+    class ToDoList extends Component {
     state = {
         tasks: this.props.tasks,
         draft: ''
@@ -15,10 +15,9 @@ class ToDoList extends Component {
     addToDo = () => {
         const { tasks, draft } = this.state;
         const list = tasks;
-        list.push(draft);
+        list.push({text: draft});
         this.setState({tasks: list, draft: ''})
     };
-
 
 
     render() {
@@ -28,10 +27,10 @@ class ToDoList extends Component {
         return (
             <div className="app-container">
                 <h3>{this.props.title}</h3>
-                <input  type='text' onChange={this.upDateDraft} value={draft} />
-                <button disabled={!this.state.draft} onClick={this.addToDo} className="btn">Dodaj zadanie</button>
+                <input className="form-control" type='text' onChange={this.upDateDraft} value={draft} />
+                <button disabled={!draft} onClick={this.addToDo} className="btn">Dodaj zadanie</button>
                 <ul className="tasks-container">
-                    {tasks.map((task,i) => <li key={'task ' + i} className="single-task">{task} <i className="far fa-trash-alt"></i></li> )}
+                    {tasks.map(task => <ToDoItem task={task}/>)}
                 </ul>
             </div>
         );
@@ -40,10 +39,10 @@ class ToDoList extends Component {
 
 class App extends Component {
     myTasks = [
-        'Zadanie 1',
-        'Zadnie 2',
-        'Zadanie 3',
-        'Zadanie 4'
+        {text:'Zadanie 1'},
+        {text:'Zadnie 2'},
+        {text:'Zadanie 3'},
+        {text:'Zadanie 4'}
     ];
 
     render() {
